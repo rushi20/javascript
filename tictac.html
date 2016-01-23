@@ -1,0 +1,94 @@
+<html>
+	<head>
+		<style>
+			.c
+			{
+				width:298px;
+				height:98px;
+				
+			}
+			.c1
+			{
+				width:97px;
+				height:96px;
+				border:1px solid black;
+				float:left;
+			}
+			.clr
+			{
+				clear:left;
+			}
+		</style>
+		<script>
+		var cnt=0;
+			function f(x)
+			{ 
+				if(cnt%2==0)
+				{
+				x.innerHTML="0";
+				}
+				else
+				{
+					x.innerHTML="x";
+				}
+				cnt++;
+				fr('d1','d2','d3');
+				fr('d4','d5','d6');
+				fr('d7','d8','d9');
+				fr('d1','d4','d7');
+				fr('d2','d5','d8');
+				fr('d3','d6','d9');
+				fr('d1','d5','d9');
+				fr('d3','d5','d7');
+				if(cnt==9)
+				{
+					alert("draw");
+				}
+			}
+			function fr(m,n,o)
+			{
+				var x=document.getElementById(m);
+				var y=document.getElementById(n);
+				var z=document.getElementById(o);
+				if(x.innerHTML=="0" && y.innerHTML=="0" && z.innerHTML=="0")
+				{
+					alert("o win");
+				}
+			if(x.innerHTML=="x" && y.innerHTML=="x" && z.innerHTML=="x")
+				{
+					alert("x win");
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div style="width:300px;height:300px;">
+			<div class="c" >
+				<div class="c1" onclick="f(this)" id="d1" >
+				</div>
+				<div class="c1" onclick="f(this)" id="d2" >
+				</div>
+				<div class="c1" onclick="f(this)" id="d3">
+				</div>
+			</div>
+			<div class="c">
+				<div class="c1 clr" onclick="f(this)" id="d4">
+				</div>
+				<div class="c1" onclick="f(this)" id="d5">
+				</div>
+				<div class="c1" onclick="f(this)" id="d6">
+				</div>
+			</div>
+			<div class="c">
+				<div class="c1 clr" onclick="f(this)" id="d7">
+				</div>
+				<div class="c1" onclick="f(this)" id="d8">
+				</div>
+				<div class="c1" onclick="f(this)" id="d9" >
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
