@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<script>
+			function f()
+			{
+				var id=document.getElementById("t1");
+				var x=document.getElementById("f1");
+				var y=document.getElementById("l1");
+				id.style.display="";
+				var row1=id.insertRow(-1);
+				var cell=row1.insertCell(0);
+				var cell1=row1.insertCell(1);
+				var cell2=row1.insertCell(2);
+				cell.innerHTML=x.value;
+				cell1.innerHTML=y.value;
+				cell2.innerHTML="<input type='button' value='edit' onclick='fe(this)'><input type='button' onclick='fd(this)' value='delete'>";
+			}
+			function fd(x)
+			{
+				var r1 = x.parentNode.parentNode;
+				var id=document.getElementById("t1");
+				id.deleteRow(r1.rowIndex);
+			}
+			var r1;
+			function fe(x)
+			{	
+				 r1=x.parentNode.parentNode;
+				var c0=r1.cells[0];
+				var c1=r1.cells[1];
+				var z=document.getElementById("f1");
+				var y=document.getElementById("l1");
+				z.value=c0.innerHTML;
+				y.value=c1.innerHTML;
+				var p=document.getElementById("a2");
+				var q=document.getElementById("a1");
+				p.style.display="";
+				q.style.display="none";
+			}
+			function fu()
+			{
+				var c0=r1.cells[0];
+				var c1=r1.cells[1];
+				var x=document.getElementById("f1");
+				var y=document.getElementById("l1");
+				c0.innerHTML=x.value;
+				c1.innerHTML=y.value;
+			}
+		</script>
+	</head>
+	<body>
+		<table id="t2">
+			<tr>
+				<td>First Name</td>
+				<td><input type="text" id="f1" /><td>
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td><input type="text" id="l1"/></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="add" id="a1" onclick="f()"/></td>
+				<td><input type="button" value="update" id="a2" onclick="fu()" style="display:none"/></td>
+			</tr>
+		</table>
+		<table id="t1" style="display:none" border="1">
+			<tr style="border:1px solid black">
+				<td style="border:1px solid black" id="t2">first name</td>
+				<td style="border:1px solid black" id="t3">Last name</td>
+				<td style="border:1px solid black" id="t4">Action</td>
+			</tr>
+		</table>
+	</body>
+</html>
